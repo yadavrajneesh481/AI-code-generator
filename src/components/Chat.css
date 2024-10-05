@@ -1,0 +1,195 @@
+/* Chat.css */
+:root {
+  color-scheme: dark;
+
+  --red: 255, 0, 0;
+  /* Changed green to red */
+  --cyan: 0, 255, 255;
+  --yellow: 255, 255, 0;
+  --magenta: 255, 0, 255;
+  --white: 255, 255, 255;
+  --orange: 255, 128, 0;
+  --lime: 128, 255, 0;
+  --blue: 0, 128, 255;
+
+  --primary-rgb: var(--red);
+  /* Changed primary color to red */
+  --primary: rgb(var(--primary-rgb));
+  --secondary: rgb(var(--cyan));
+  --plain: rgb(var(--white));
+  --info: rgb(var(--yellow));
+  --error: rgb(var(--red));
+
+  --background: rgb(0, 0, 0);
+  /* Set background to black */
+  --background-light: rgba(var(--primary-rgb), 0.1);
+  --background-dark: rgba(var(--primary-rgb), 0.04);
+  --background-hover: rgba(var(--primary-rgb), 0.4);
+  --border: rgba(var(--primary-rgb), 0.2);
+  --border-radius: 6px;
+  --blur: blur(4px);
+}
+
+body {
+  background-color: black !important;
+  /* Black background */
+  overflow-y: auto;
+  /* Allow vertical scrolling */
+  margin: 0;
+  /* Remove default margin */
+}
+
+.wrapper {
+  font-family: Consolas, monospace, sans-serif !important;
+}
+
+.container {
+  overflow: hidden;
+  /* Keep this to prevent inner scrolling */
+  min-height: 100vh;
+  /* Ensure it takes at least full height */
+  position: relative;
+  /* For absolute positioning of letters */
+}
+
+.letters {
+  --x: 0px;
+  --y: 0px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  color: var(--primary);
+  /* Red color */
+  opacity: 0;
+  word-wrap: break-word;
+  cursor: default;
+  user-select: none;
+  z-index: -1;
+  /* Behind other content */
+  transition: opacity 0.4s ease;
+}
+
+.components {
+  position: relative;
+  /* For stacking context */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px;
+  /* Add padding for spacing */
+  width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary);
+  /* Red color */
+  font-size: 36px;
+  /* Adjust as needed */
+}
+
+/* Button styles remain unchanged */
+.btn-group {
+  margin: 10px;
+}
+
+/* Add other styles as needed... */
+
+input,
+textarea {
+  margin: 10px;
+  padding: 10px;
+  backdrop-filter: var(--blur);
+  background-color: rgb(0, 0, 0);
+  /* Match background */
+  border: 4px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: wheat;
+  font-family: Consolas, monospace, sans-serif;
+  transition: border-color 0.4s;
+}
+
+textarea::placeholder {
+  color: aliceblue;
+}
+
+input::placeholder {
+  color: rgba(var(--primary-rgb), 0.5);
+}
+
+input:hover,
+input:focus,
+textarea:hover,
+textarea:focus {
+  border-color: var(--primary);
+}
+
+.btn-submit {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.4s, border-color 0.4s, backdrop-filter 0.4s, transform 0.4s;
+  /* Added transform to transitions */
+}
+
+.btn-submit:hover {
+  transform: scale(1.3);
+  /* Scale up on hover for pop-up effect */
+}
+
+.btn-group button,
+.btn-default {
+  padding: 10px 20px;
+  backdrop-filter: var(--blur);
+  background-color: var(--background-light);
+  /* Match background */
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  color: var(--primary);
+  /* Red color */
+  font-size: 18px;
+  font-family: Consolas, monospace, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.4s, border-color 0.4s, backdrop-filter 0.4s;
+}
+
+.btn-group button:hover,
+.btn-default:hover {
+  backdrop-filter: var(--blur);
+  background-color: var(--background-hover);
+  border-color: var(--primary);
+  /* Red color */
+}
+
+.response {
+  margin-top: 20px;
+  padding: 15px;
+  backdrop-filter: var(--blur);
+  background-color: var(--background-light);
+  /* Match background */
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  color: var(--primary);
+  /* Red color */
+  font-family: Consolas, monospace, sans-serif;
+  transition: border-color 0.4s;
+}
+
+.response:hover {
+  border-color: var(--primary);
+  /* Red color */
+}
+
+/* Add other styles as needed... */
